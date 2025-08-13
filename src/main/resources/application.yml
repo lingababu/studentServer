@@ -3,7 +3,7 @@ spring:
     name: student-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/api
+    url: jdbc:mysql://mysqldb-container:3306/api
     username: root
     password: root
   jpa:
