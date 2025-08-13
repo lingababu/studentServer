@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  application:
+    image: my-student-server-application
+    container_name: spring-container
+    ports:
+       - "2222-2222"
+    networks:
+      - sb-mysql-network
+    depends_on:
+      - mysqldb
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 10
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqldb-container
+    ports:
+      - "3306:3306"
+    networks:
+      - sb-mysql-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=api
+networks:
+  docker-mysql:
+    name: sb-mysql-network
+    external: true
+
+
+
