@@ -4,7 +4,7 @@ services:
     image: my-student-server
     container_name: spring-container
     ports:
-       - "2222-2222"
+      - "2222-2222"
     networks:
       - boot-mysql
     depends_on:
